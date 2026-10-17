@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADHONEP | Capítulo 230 - Portal de Apresentações & Recursos</title>
+    
+    <!-- Meta tags SEO -->
+    <meta name="description" content="Portal oficial do Capítulo 230 da ADHONEP. Acesso às apresentações de encontros, palestras de negócios, princípios de liderança e testemunhos.">
+    <meta name="author" content="ADHONEP Capítulo 230">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏛️</text></svg>">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-bg: #090d15;
+            --surface-bg: #101623;
+            --surface-card: #151e30;
+            --surface-hover: #1b263d;
+            --gold: #d4af37;
+            --gold-light: #f3e5ab;
+            --gold-glow: rgba(212, 175, 55, 0.25);
+            --text-main: #f4f5f7;
+            --text-muted: #9ba3b4;
+            --border-subtle: rgba(212, 175, 55, 0.2);
+            --border-highlight: rgba(212, 175, 55, 0.45);
+            --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            --radius-md: 12px;
+            --radius-lg: 18px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 85% 75%, rgba(20, 45, 80, 0.3) 0%, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(9, 13, 21, 0.85);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 16px 0;
+            transition: var(--transition);
+        }
+
+        .nav-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-badge {
+            background: linear-gradient(135deg, var(--gold), #96741b);
+            color: #090d15;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 4px 10px;
+            border-radius: 6px;
+            letter-spacing: 0.5px;
+        }
+
+        .brand-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--gold-light);
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--gold-light);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--gold);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .btn-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--gold), #b38b22);
+            color: #090d15;
+            font-weight: 600;
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
+            border: 1px solid transparent;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+            background: linear-gradient(135deg, #dfbc4a, var(--gold));
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            font-weight: 500;
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--gold);
+            color: var(--gold-light);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            padding: 90px 0 70px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            color: var(--gold);
+            border: 1px solid var(--border-subtle);
+            background: rgba(212, 175, 55, 0.08);
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.2rem;
+            line-height: 1.15;
+            color: var(--gold-light);
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
+        }
+
+        .hero p {
+            max-width: 720px;
+            margin: 0 auto 36px;
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* SEÇÃO DE APRESENTAÇÕES (MENU PRINCIPAL) */
+        .section {
+            padding: 70px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.4rem;
+            color: var(--gold-light);
+            margin-bottom: 12px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* GRID DE APRESENTAÇÕES */
+        .presentations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 28px;
+        }
+
+        .card {
+            background: var(--surface-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: var(--border-highlight);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4), 0 0 20px var(--gold-glow);
+        }
+
+        .card-banner {
+            height: 180px;
+            background: linear-gradient(135deg, #16243b, #0c1524);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border-bottom: 1px solid var(--border-subtle);
+            overflow: hidden;
+        }
+
+        .card-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+        }
+
+        .card-banner-icon {
+            font-size: 3.5rem;
+            color: var(--gold);
+            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+            transition: var(--transition);
+        }
+
+        .card:hover .card-banner-icon {
+            transform: scale(1.1);
+        }
+
+        .badge-status {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background: rgba(9, 13, 21, 0.8);
+            border: 1px solid var(--gold);
+            color: var(--gold-light);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 20px;
+            backdrop-filter: blur(6px);
+        }
+
+        .card-body {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-meta {
+            display: flex;
+            gap: 14px;
+            font-size: 0.8rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .card-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.65rem;
+            color: #fff;
+            margin-bottom: 12px;
+            line-height: 1.25;
+        }
+
+        .card-description {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .card-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #ccc;
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+
+        .card-footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .btn-open {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--gold), #a98018);
+            color: #090d15;
+            font-weight: 600;
+            padding: 9px 18px;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            transition: var(--transition);
+        }
+
+        .btn-open:hover {
+            background: #fff;
+            color: #090d15;
+            transform: translateX(3px);
+        }
+
+        /* CARD PLACEHOLDER (PRÓXIMAS APRESENTAÇÕES) */
+        .card.placeholder {
+            border: 1px dashed var(--border-subtle);
+            background: rgba(16, 22, 35, 0.5);
+        }
+
+        .card.placeholder:hover {
+            border-color: var(--gold);
+        }
+
+        .card.placeholder .card-banner {
+            background: rgba(12, 18, 28, 0.4);
+        }
+
+        /* SEÇÃO SOBRE A ADHONEP */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            background: var(--surface-bg);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 44px;
+        }
+
+        .about-text h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            color: var(--gold-light);
+            margin-bottom: 16px;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 18px;
+            font-size: 1rem;
+        }
+
+        .pillars-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .pillar-item {
+            background: var(--surface-card);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            padding: 16px;
+            border-radius: var(--radius-md);
+        }
+
+        .pillar-title {
+            color: var(--gold-light);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pillar-desc {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+
+        /* FOOTER */
+        .footer {
+            border-top: 1px solid var(--border-subtle);
+            background: #06090e;
+            padding: 40px 0;
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--gold-light);
+            margin-bottom: 10px;
+        }
+
+        .footer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 6px;
+        }
+
+        .footer-disclaimer {
+            font-size: 0.8rem !important;
+            color: #667085 !important;
+            margin-top: 16px;
+        }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 860px) {
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+                padding: 26px;
+            }
+            .nav-links {
+                display: none; /* Simplificado para celular */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="container nav-content">
+            <div class="brand">
+                <span class="brand-badge">CAPÍTULO 230</span>
+                <span class="brand-title">ADHONEP</span>
+            </div>
+            <nav class="nav-links">
+                <a href="#apresentacoes" class="nav-link">Apresentações</a>
+                <a href="#sobre" class="nav-link">Sobre o Capítulo</a>
+                <a href="#pilares" class="nav-link">Pilares</a>
+            </nav>
+            <a href="#apresentacoes" class="btn-cta">
+                <span>Ver Apresentações</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-tag">Associação de Homens de Negócio do Evangelho Pleno</div>
+            <h1>Capítulo 230 • Encontros & Liderança</h1>
+            <p>
+                Bem-vindo ao portal de apresentações e conteúdos do nosso capítulo. 
+                Aqui você encontra os materiais exibidos em nossos almoços, jantares e palestras, 
+                unindo princípios de gestão, integridade nos negócios e valores cristãos.
+            </p>
+            <div class="hero-buttons">
+                <a href="#apresentacoes" class="btn-cta">
+                    <span>Acessar o Menu de Apresentações</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                </a>
+                <a href="#sobre" class="btn-secondary">
+                    <span>Conhecer o Capítulo 230</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENU DE APRESENTAÇÕES -->
+    <section id="apresentacoes" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Menu de Apresentações</h2>
+                <p>Selecione uma das apresentações abaixo para visualizar os slides interativos em tela cheia.</p>
+            </div>
+
+            <div class="presentations-grid">
+                
+                <!-- CARD 1: APRESENTAÇÃO ATUAL -->
+                <article class="card">
+                    <div class="card-banner">
+                        <span class="badge-status">Disponível</span>
+                        <div class="card-banner-icon">⚔️</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-meta">
+                            <span>📅 Encontro ADHONEP</span>
+                            <span>⏱️ 12 Slides Interativos</span>
+                        </div>
+                        <h3 class="card-title">O Princípio da Coragem nos Negócios</h3>
+                        <p class="card-description">
+                            Uma jornada prática e espiritual inspirada na liderança de Gideão. Como superar a paralisia do medo, tomar decisões firmes e liderar com fé e autoridade no mercado corporativo.
+                        </p>
+                        <div class="card-tags">
+                            <span class="tag">Coragem</span>
+                            <span class="tag">Liderança</span>
+                            <span class="tag">Gideão</span>
+                            <span class="tag">Oração de Convite</span>
+                        </div>
+                        <div class="card-footer">
+                            <span style="font-size: 0.8rem; color: var(--text-muted);">Formato Reveal.js</span>
+                            <!-- Link direto para o arquivo da apresentação -->
+                            <a href="APRESENTACAO_PRINCIPIO_CORAGEM.HTML" class="btn-open" target="_blank" rel="noopener">
+                                <span>Abrir Apresentação</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- CARD 2: PLACEHOLDER PARA PRÓXIMO ENCONTRO (FÁCIL DE DUPLICAR) -->
+                <article class="card placeholder">
+                    <div class="card-banner">
+                        <span class="badge-status" style="border-color: #888; color: #aaa;">Em Breve</span>
+                        <div class="card-banner-icon" style="opacity: 0.4;">🤝</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-meta" style="color: var(--text-muted);">
+                            <span>📅 Próximo Encontro</span>
+                            <span>⏱️ Em Elaboração</span>
+                        </div>
+                        <h3 class="card-title" style="color: #bbb;">Integridade & Prosperidade com Propósito</h3>
+                        <p class="card-description">
+                            Princípios fundamentais de fidelidade nos negócios, governança ética e como construir um legado duradouro para sua empresa e família.
+                        </p>
+                        <div class="card-tags">
+                            <span class="tag">Integridade</span>
+                            <span class="tag">Gestão</span>
+                            <span class="tag">Família</span>
+                        </div>
+                        <div class="card-footer">
+                            <span style="font-size: 0.8rem; color: #667085;">Disponível após o evento</span>
+                            <button class="btn-secondary" style="opacity: 0.6; cursor: not-allowed; padding: 6px 14px;" disabled>
+                                Aguarde
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- CARD 3: PLACEHOLDER HISTÓRICO / TESTEMUNHOS -->
+                <article class="card placeholder">
+                    <div class="card-banner">
+                        <span class="badge-status" style="border-color: #888; color: #aaa;">Acervo</span>
+                        <div class="card-banner-icon" style="opacity: 0.4;">📖</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-meta" style="color: var(--text-muted);">
+                            <span>📅 Acervo do Capítulo</span>
+                            <span>⏱️ Testemunhos</span>
+                        </div>
+                        <h3 class="card-title" style="color: #bbb;">Histórias de Sucesso e Transformação</h3>
+                        <p class="card-description">
+                            Compilado de relatos reais de empresários, profissionais liberais e líderes que tiveram seus negócios e lares transformados.
+                        </p>
+                        <div class="card-tags">
+                            <span class="tag">Testemunho</span>
+                            <span class="tag">Superação</span>
+                        </div>
+                        <div class="card-footer">
+                            <span style="font-size: 0.8rem; color: #667085;">Em atualização</span>
+                            <button class="btn-secondary" style="opacity: 0.6; cursor: not-allowed; padding: 6px 14px;" disabled>
+                                Aguarde
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE O CAPÍTULO & PILARES -->
+    <section id="sobre" class="section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h3>Sobre a ADHONEP & Capítulo 230</h3>
+                    <p>
+                        A <strong>ADHONEP</strong> (Associação de Homens de Negócio do Evangelho Pleno) é uma entidade internacional sem fins lucrativos que reúne empresários, executivos, autoridades e profissionais liberais.
+                    </p>
+                    <p>
+                        No <strong>Capítulo 230</strong>, criamos um ambiente acolhedor, neutro e de alto nível para networking qualificado, troca de experiências práticas de gestão e edificação pessoal e familiar.
+                    </p>
+                    <p>
+                        Nossos eventos e palestras têm como objetivo inspirar líderes a atuarem com justiça, verdade e ousadia nos desafios do mercado atual.
+                    </p>
+                </div>
+                <div id="pilares" class="pillars-list">
+                    <div class="pillar-item">
+                        <div class="pillar-title">⚖️ Ética nos Negócios</div>
+                        <div class="pillar-desc">Práticas comerciais justas e comprometimento inegociável com a integridade.</div>
+                    </div>
+                    <div class="pillar-item">
+                        <div class="pillar-title">🏡 Família Fortalecida</div>
+                        <div class="pillar-desc">O sucesso nos negócios só é pleno quando reflete na harmonia do lar.</div>
+                    </div>
+                    <div class="pillar-item">
+                        <div class="pillar-title">💡 Liderança com Propósito</div>
+                        <div class="pillar-desc">Tomada de decisão pautada na sabedoria, coragem e responsabilidade social.</div>
+                    </div>
+                    <div class="pillar-item">
+                        <div class="pillar-title">🤝 Comunhão & Apoio</div>
+                        <div class="pillar-desc">Rede de amizade sincera entre líderes que compartilham dos mesmos valores.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">ADHONEP • Capítulo 230</div>
+            <p>Portal de Apresentações e Recursos para Encontros e Palestras</p>
+            <p class="footer-disclaimer">
+                Site mantido para fins de exibição dos materiais internos do Capítulo 230. 
+                Todos os direitos das marcas e materiais pertencem aos respectivos autores.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
