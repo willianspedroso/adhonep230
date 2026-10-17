@@ -1,59 +1,86 @@
 # Portal de Apresentações - ADHONEP Capítulo 230
 
-Site em HTML puro com identidade visual da ADHONEP (Capítulo 230), contendo descrição do propósito do capítulo e catálogo/menu com acesso direto a todas as apresentações interativas.
+Portal oficial em HTML puro para o **Capítulo 230 da ADHONEP**, contendo o catálogo dinâmico de apresentações em slides interativos (Reveal.js) organizados em **ordem cronológica**, com busca instantânea, filtros por categoria e destaque do próximo encontro.
 
 ---
 
-## 📁 Estrutura de Arquivos
+## 🌐 Link Público Ativo
+
+👉 **[https://willianspedroso.github.io/adhonep230/](https://willianspedroso.github.io/adhonep230/)**
+
+---
+
+## 📁 Estrutura do Projeto
 
 ```text
-site_apresentacao/
+adhonep230/
 │
-├── index.html                           <- Página inicial (Portal & Menu de Apresentações)
-├── APRESENTACAO_PRINCIPIO_CORAGEM.HTML  <- Apresentação em Reveal.js
-└── README.md                            <- Guia de uso e publicação gratuita
+├── index.html                           <- Portal principal (Linha do Tempo + Destaque Josué)
+├── apresentacoes.js                     <- Banco de dados do acervo (datas, títulos, tags)
+├── generate_presentations.py            <- Script automático de conversão PPTX -> Reveal.js
+│
+├── APRESENTACAO_PRINCIPIO_CORAGEM.HTML  <- Próximo Encontro (Josué 1:9)
+├── APRESENTACAO_SWOT_CRISTA.HTML        <- Análise SWOT Cristã & Empreendedora (12/08/2026)
+├── APRESENTACAO_EGO_TRANSFORMADO.HTML   <- Ego Transformado - Timothy Keller (29/06/2026)
+├── APRESENTACAO_COM_DEUS_E_POSSIVEL.HTML<- Com Deus, é Possível (18/05/2026)
+├── APRESENTACAO_O_PODER_QUE_VOCE_POSSUI.HTML <- O Poder que Você Possui (23/03/2026)
+├── APRESENTACAO_LIVRE_SE_DOS_RESSENTIMENTOS.HTML <- Livre-se dos Ressentimentos (23/02/2026)
+├── APRESENTACAO_LIDERAR_E_SERVIR.HTML   <- Liderar é Servir (13/10/2025)
+├── APRESENTACAO_VENDAS_HABILIDADE_CHAVE.HTML <- Vendas Habilidade-Chave (01/09/2025)
+├── APRESENTACAO_VOCE_GOVERNA_A_SI_MESMO.HTML <- Você Governa a Si Mesmo? (26/08/2025)
+│
+└── README.md                            <- Documentação do sistema
 ```
 
 ---
 
-## 🚀 Como Testar no Computador
+## 🔄 Como o Sistema Funciona (Escalabilidade Fluida)
 
-Basta dar dois cliques no arquivo **`index.html`** para abrir em qualquer navegador (Google Chrome, Edge, Safari, Firefox). Não requer instalação de Node.js, banco de dados ou servidor complexo.
+Como a quantidade de palestras e encontros tende a crescer de forma exponencial, o portal foi desacoplado do código visual:
+
+1. **`apresentacoes.js`**: Centraliza todas as informações das apresentações (título, subtítulo, data real, tags, ícone e link).
+2. **`index.html`**: Lê o arquivo `apresentacoes.js` dinamicamente:
+   - Ordena os encontros automaticamente por data (mais recentes primeiro).
+   - Permite que qualquer pessoa busque por palavras-chave (ex: "Josué", "Vendas", "Liderança").
+   - Filtra por categorias (*Liderança*, *Negócios & Gestão*, *Inteligência Emocional*, *Vida & Fé*).
+3. **`generate_presentations.py`**: Converte os arquivos `.pptx` diretamente para o padrão Reveal.js com design idêntico ao de Josué.
 
 ---
 
-## ➕ Como Adicionar uma Nova Apresentação
+## 🚀 Como Adicionar uma Nova Apresentação no Futuro
 
-1. Salve seu novo arquivo HTML na mesma pasta (exemplo: `APRESENTACAO_LIDERANCA.HTML`).
-2. Abra o arquivo `index.html` em um editor de texto ou código.
-3. Localize a área `<div class="presentations-grid">`.
-4. Copie o bloco de um dos cards e atualize o título, a descrição e o link no botão:
-   ```html
-   <a href="APRESENTACAO_LIDERANCA.HTML" class="btn-open" target="_blank">
-       <span>Abrir Apresentação</span>
-   </a>
+### Método 1 (Automático com PPTX)
+1. Coloque o novo arquivo `.pptx` na pasta `FEITA`.
+2. Adicione os dados do encontro na lista `METADATA` do arquivo `generate_presentations.py`.
+3. Execute no terminal:
+   ```bash
+   python generate_presentations.py
+   ```
+4. Faça o commit e push para o GitHub:
+   ```bash
+   git add .
+   git commit -m "Nova apresentação adicionada"
+   git push
    ```
 
----
-
-## 🌐 Como Publicar de Graça na Internet
-
-### Opção 1: Netlify Drop (A mais rápida - 30 segundos, sem comandos)
-1. Acesse: **[app.netlify.com/drop](https://app.netlify.com/drop)**
-2. Crie uma conta gratuita (com seu e-mail ou conta do Google).
-3. Arraste a pasta inteira `site_apresentacao` para o círculo indicado na página.
-4. Pronto! O Netlify vai gerar um link instantâneo com HTTPS (exemplo: `adhonep230.netlify.app`).
-5. Nas configurações do Netlify você pode alterar o subdomínio para o nome que quiser de graça (ex: `adhonep-capitulo230.netlify.app`).
-
-### Opção 2: GitHub Pages (Para guardar o histórico no GitHub)
-1. Crie uma conta no **[GitHub](https://github.com)** se ainda não tiver.
-2. Crie um repositório novo (exemplo: `adhonep230`).
-3. Suba os arquivos da pasta para o repositório.
-4. No repositório, clique em **Settings** > **Pages** (no menu lateral esquerdo).
-5. Em **Branch**, selecione `main` (ou `master`) e a pasta `/ (root)`, depois clique em **Save**.
-6. Em cerca de 1 minuto seu site estará online no endereço: `https://seu-usuario.github.io/adhonep230/`.
-
-### Opção 3: Vercel
-1. Acesse: **[vercel.com](https://vercel.com)**
-2. Conecte com sua conta do GitHub e importe o repositório com 1 clique.
-3. O deploy é feito automaticamente.
+### Método 2 (Direto no HTML)
+1. Crie seu arquivo `APRESENTACAO_NOVA.HTML` na pasta.
+2. Abra `apresentacoes.js` e adicione uma nova entrada no array:
+   ```javascript
+   {
+       "id": "nova-palestra",
+       "title": "Título da Palestra",
+       "subtitle": "Subtítulo do tema",
+       "date": "2026-11-15",
+       "formattedDate": "15 de Novembro de 2026",
+       "badge": "Encontro ADHONEP",
+       "status": "proximo", // ou "realizado"
+       "category": "Liderança",
+       "tags": ["Liderança", "Decisão"],
+       "icon": "🤝",
+       "filename": "APRESENTACAO_NOVA.HTML",
+       "desc": "Breve resumo da mensagem compartilhada.",
+       "slidesCount": 12
+   }
+   ```
+3. O `index.html` atualizará a ordem cronológica, busca e filtros automaticamente!

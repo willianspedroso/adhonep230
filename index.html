@@ -6,7 +6,7 @@
     <title>ADHONEP | Capítulo 230 - Portal de Apresentações & Recursos</title>
     
     <!-- Meta tags SEO -->
-    <meta name="description" content="Portal oficial do Capítulo 230 da ADHONEP. Acesso às apresentações de encontros, palestras de negócios, princípios de liderança e testemunhos.">
+    <meta name="description" content="Portal oficial do Capítulo 230 da ADHONEP. Acesso cronológico às apresentações de encontros, palestras de liderança, gestão e princípios de fé nos negócios.">
     <meta name="author" content="ADHONEP Capítulo 230">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏛️</text></svg>">
 
@@ -72,7 +72,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(9, 13, 21, 0.85);
+            background: rgba(9, 13, 21, 0.88);
             backdrop-filter: blur(14px);
             -webkit-backdrop-filter: blur(14px);
             border-bottom: 1px solid var(--border-subtle);
@@ -112,12 +112,12 @@
 
         .nav-links {
             display: flex;
-            gap: 28px;
+            gap: 24px;
             align-items: center;
         }
 
         .nav-link {
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             font-weight: 500;
             color: var(--text-muted);
             transition: var(--transition);
@@ -186,7 +186,7 @@
 
         /* HERO SECTION */
         .hero {
-            padding: 90px 0 70px;
+            padding: 80px 0 50px;
             text-align: center;
             position: relative;
         }
@@ -202,7 +202,7 @@
             font-weight: 600;
             letter-spacing: 1px;
             text-transform: uppercase;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         .hero h1 {
@@ -210,55 +210,217 @@
             font-size: 3.2rem;
             line-height: 1.15;
             color: var(--gold-light);
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             font-weight: 700;
             text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
         }
 
         .hero p {
-            max-width: 720px;
-            margin: 0 auto 36px;
-            font-size: 1.15rem;
+            max-width: 760px;
+            margin: 0 auto 32px;
+            font-size: 1.12rem;
             color: var(--text-muted);
             font-weight: 300;
         }
 
-        .hero-buttons {
+        /* CARD DESTAQUE - PRÓXIMO ENCONTRO */
+        .featured-card {
+            background: linear-gradient(135deg, rgba(21, 30, 48, 0.95), rgba(13, 20, 34, 0.95));
+            border: 1.5px solid var(--gold);
+            border-radius: var(--radius-lg);
+            padding: 34px;
+            margin: 30px auto 60px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6), 0 0 30px rgba(212, 175, 55, 0.2);
+            position: relative;
+            text-align: left;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: -14px;
+            left: 28px;
+            background: linear-gradient(135deg, var(--gold), #96741b);
+            color: #090d15;
+            font-weight: 700;
+            font-size: 0.78rem;
+            padding: 4px 14px;
+            border-radius: 20px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .featured-icon {
+            font-size: 3.8rem;
+            background: rgba(212, 175, 55, 0.1);
+            width: 88px;
+            height: 88px;
             display: flex;
+            align-items: center;
             justify-content: center;
+            border-radius: 18px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .featured-content h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.1rem;
+            color: #fff;
+            margin-bottom: 6px;
+            line-height: 1.2;
+        }
+
+        .featured-subtitle {
+            color: var(--gold-light);
+            font-size: 0.98rem;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .featured-desc {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.55;
+            max-width: 680px;
+        }
+
+        .featured-meta {
+            display: flex;
             gap: 16px;
-            flex-wrap: wrap;
+            margin-top: 14px;
+            font-size: 0.82rem;
+            color: var(--gold);
         }
 
         /* SEÇÃO DE APRESENTAÇÕES (MENU PRINCIPAL) */
         .section {
-            padding: 70px 0;
+            padding: 50px 0;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 34px;
         }
 
         .section-header h2 {
             font-family: 'Cormorant Garamond', serif;
             font-size: 2.4rem;
             color: var(--gold-light);
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .section-header p {
             color: var(--text-muted);
             font-size: 1.05rem;
-            max-width: 600px;
+            max-width: 640px;
             margin: 0 auto;
+        }
+
+        /* BARRA DE CONTROLE: PESQUISA, FILTROS E ORDENAÇÃO */
+        .controls-bar {
+            background: var(--surface-bg);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 16px 20px;
+            margin-bottom: 36px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .search-box {
+            flex-grow: 1;
+            min-width: 260px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            background: rgba(9, 13, 21, 0.7);
+            border: 1px solid var(--border-subtle);
+            border-radius: 25px;
+            padding: 10px 18px 10px 42px;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .search-box input:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 12px var(--gold-glow);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            pointer-events: none;
+        }
+
+        .filter-tabs {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--gold);
+            color: #090d15;
+            font-weight: 600;
+            border-color: var(--gold);
+        }
+
+        .sort-control {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .sort-select {
+            background: rgba(9, 13, 21, 0.8);
+            border: 1px solid var(--border-subtle);
+            color: var(--gold-light);
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            cursor: pointer;
+            outline: none;
         }
 
         /* GRID DE APRESENTAÇÕES */
         .presentations-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 28px;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 26px;
         }
 
         .card {
@@ -275,11 +437,11 @@
         .card:hover {
             transform: translateY(-6px);
             border-color: var(--border-highlight);
-            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4), 0 0 20px var(--gold-glow);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 20px var(--gold-glow);
         }
 
         .card-banner {
-            height: 180px;
+            height: 150px;
             background: linear-gradient(135deg, #16243b, #0c1524);
             display: flex;
             align-items: center;
@@ -289,15 +451,8 @@
             overflow: hidden;
         }
 
-        .card-banner::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
-        }
-
         .card-banner-icon {
-            font-size: 3.5rem;
+            font-size: 3.2rem;
             color: var(--gold);
             filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
             transition: var(--transition);
@@ -309,12 +464,12 @@
 
         .badge-status {
             position: absolute;
-            top: 14px;
-            right: 14px;
-            background: rgba(9, 13, 21, 0.8);
+            top: 12px;
+            right: 12px;
+            background: rgba(9, 13, 21, 0.85);
             border: 1px solid var(--gold);
             color: var(--gold-light);
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             font-weight: 600;
             padding: 4px 10px;
             border-radius: 20px;
@@ -322,55 +477,64 @@
         }
 
         .card-body {
-            padding: 24px;
+            padding: 22px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
         }
 
-        .card-meta {
-            display: flex;
-            gap: 14px;
-            font-size: 0.8rem;
+        .card-date {
+            font-size: 0.78rem;
             color: var(--gold);
-            margin-bottom: 10px;
-            font-weight: 500;
+            margin-bottom: 8px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
         .card-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.65rem;
+            font-size: 1.55rem;
             color: #fff;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             line-height: 1.25;
+        }
+
+        .card-subtitle {
+            font-size: 0.84rem;
+            color: var(--gold-light);
+            margin-bottom: 10px;
+            font-weight: 500;
         }
 
         .card-description {
             color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 20px;
+            font-size: 0.88rem;
+            margin-bottom: 16px;
             flex-grow: 1;
+            line-height: 1.5;
         }
 
         .card-tags {
             display: flex;
-            gap: 8px;
+            gap: 6px;
             flex-wrap: wrap;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         .tag {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.08);
             color: #ccc;
-            font-size: 0.75rem;
-            padding: 4px 10px;
+            font-size: 0.72rem;
+            padding: 3px 8px;
             border-radius: 6px;
         }
 
         .card-footer {
             border-top: 1px solid rgba(255, 255, 255, 0.06);
-            padding-top: 18px;
+            padding-top: 16px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -383,9 +547,9 @@
             background: linear-gradient(135deg, var(--gold), #a98018);
             color: #090d15;
             font-weight: 600;
-            padding: 9px 18px;
+            padding: 8px 16px;
             border-radius: 8px;
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             transition: var(--transition);
         }
 
@@ -393,20 +557,6 @@
             background: #fff;
             color: #090d15;
             transform: translateX(3px);
-        }
-
-        /* CARD PLACEHOLDER (PRÓXIMAS APRESENTAÇÕES) */
-        .card.placeholder {
-            border: 1px dashed var(--border-subtle);
-            background: rgba(16, 22, 35, 0.5);
-        }
-
-        .card.placeholder:hover {
-            border-color: var(--gold);
-        }
-
-        .card.placeholder .card-banner {
-            background: rgba(12, 18, 28, 0.4);
         }
 
         /* SEÇÃO SOBRE A ADHONEP */
@@ -496,12 +646,19 @@
             .hero h1 {
                 font-size: 2.4rem;
             }
+            .featured-card {
+                grid-template-columns: 1fr;
+                padding: 24px;
+            }
+            .featured-icon {
+                display: none;
+            }
             .about-grid {
                 grid-template-columns: 1fr;
                 padding: 26px;
             }
             .nav-links {
-                display: none; /* Simplificado para celular */
+                display: none;
             }
         }
     </style>
@@ -516,11 +673,12 @@
                 <span class="brand-title">ADHONEP</span>
             </div>
             <nav class="nav-links">
-                <a href="#apresentacoes" class="nav-link">Apresentações</a>
+                <a href="#proximo" class="nav-link">Próximo Encontro</a>
+                <a href="#acervo" class="nav-link">Linha do Tempo</a>
                 <a href="#sobre" class="nav-link">Sobre o Capítulo</a>
                 <a href="#pilares" class="nav-link">Pilares</a>
             </nav>
-            <a href="#apresentacoes" class="btn-cta">
+            <a href="#acervo" class="btn-cta">
                 <span>Ver Apresentações</span>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
@@ -533,122 +691,80 @@
             <div class="hero-tag">Associação de Homens de Negócio do Evangelho Pleno</div>
             <h1>Capítulo 230 • Encontros & Liderança</h1>
             <p>
-                Bem-vindo ao portal de apresentações e conteúdos do nosso capítulo. 
-                Aqui você encontra os materiais exibidos em nossos almoços, jantares e palestras, 
-                unindo princípios de gestão, integridade nos negócios e valores cristãos.
+                Portal oficial de apresentações e recursos interativos do nosso capítulo. 
+                Aqui você encontra todos os materiais exibidos em nossos almoços, jantares e palestras, 
+                unindo gestão estratégica, integridade corporativa e valores cristãos.
             </p>
-            <div class="hero-buttons">
-                <a href="#apresentacoes" class="btn-cta">
-                    <span>Acessar o Menu de Apresentações</span>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-                </a>
-                <a href="#sobre" class="btn-secondary">
-                    <span>Conhecer o Capítulo 230</span>
-                </a>
+
+            <!-- CARD DESTAQUE: PRÓXIMO ENCONTRO (JOSUÉ) -->
+            <div id="proximo" class="featured-card">
+                <span class="featured-badge">🔥 Próximo Encontro • Destaque</span>
+                <div class="featured-icon">⚔️</div>
+                <div class="featured-content">
+                    <h3>O Princípio da Coragem nos Negócios</h3>
+                    <div class="featured-subtitle">Governança, Estratégia (SWOT & BSC) e Fé à luz de <strong>Josué 1:9</strong></div>
+                    <p class="featured-desc">
+                        Uma jornada prática e espiritual inspirada na liderança de <strong>Josué</strong>. Como superar a paralisia do medo, tomar decisões firmes sob pressão e liderar com fé e autoridade no mercado corporativo.
+                    </p>
+                    <div class="featured-meta">
+                        <span>📅 Outubro/2026</span>
+                        <span>⏱️ 12 Slides Interativos</span>
+                        <span>📖 Josué 1:9</span>
+                    </div>
+                </div>
+                <div>
+                    <a href="APRESENTACAO_PRINCIPIO_CORAGEM.HTML" class="btn-cta" target="_blank" rel="noopener" style="padding: 14px 28px; font-size: 1rem;">
+                        <span>Abrir Apresentação</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                    </a>
+                </div>
             </div>
+
         </div>
     </section>
 
-    <!-- MENU DE APRESENTAÇÕES -->
-    <section id="apresentacoes" class="section">
+    <!-- LINHA DO TEMPO & ACERVO CRONOLÓGICO -->
+    <section id="acervo" class="section">
         <div class="container">
             <div class="section-header">
-                <h2>Menu de Apresentações</h2>
-                <p>Selecione uma das apresentações abaixo para visualizar os slides interativos em tela cheia.</p>
+                <h2>Linha do Tempo das Apresentações</h2>
+                <p>Navegue pelo acervo histórico dos encontros do Capítulo 230 em ordem cronológica ou filtre pelo tema desejado.</p>
             </div>
 
-            <div class="presentations-grid">
+            <!-- BARRA DE CONTROLE: PESQUISA, FILTROS E ORDENAÇÃO -->
+            <div class="controls-bar">
+                <div class="search-box">
+                    <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                    <input type="text" id="searchInput" placeholder="Buscar por tema, versículo, palavra-chave..." oninput="handleSearch()">
+                </div>
                 
-                <!-- CARD 1: APRESENTAÇÃO ATUAL -->
-                <article class="card">
-                    <div class="card-banner">
-                        <span class="badge-status">Disponível</span>
-                        <div class="card-banner-icon">⚔️</div>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-meta">
-                            <span>📅 Encontro ADHONEP</span>
-                            <span>⏱️ 12 Slides Interativos</span>
-                        </div>
-                        <h3 class="card-title">O Princípio da Coragem nos Negócios</h3>
-                        <p class="card-description">
-                            Uma jornada prática e espiritual inspirada na liderança de Gideão. Como superar a paralisia do medo, tomar decisões firmes e liderar com fé e autoridade no mercado corporativo.
-                        </p>
-                        <div class="card-tags">
-                            <span class="tag">Coragem</span>
-                            <span class="tag">Liderança</span>
-                            <span class="tag">Gideão</span>
-                            <span class="tag">Oração de Convite</span>
-                        </div>
-                        <div class="card-footer">
-                            <span style="font-size: 0.8rem; color: var(--text-muted);">Formato Reveal.js</span>
-                            <!-- Link direto para o arquivo da apresentação -->
-                            <a href="APRESENTACAO_PRINCIPIO_CORAGEM.HTML" class="btn-open" target="_blank" rel="noopener">
-                                <span>Abrir Apresentação</span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
-                            </a>
-                        </div>
-                    </div>
-                </article>
+                <div class="filter-tabs">
+                    <button class="filter-btn active" onclick="setCategory('todos')">Todos (<span id="countTotal">0</span>)</button>
+                    <button class="filter-btn" onclick="setCategory('Liderança')">Liderança</button>
+                    <button class="filter-btn" onclick="setCategory('Negócios & Gestão')">Negócios & Gestão</button>
+                    <button class="filter-btn" onclick="setCategory('Inteligência Emocional')">Inteligência Emocional</button>
+                    <button class="filter-btn" onclick="setCategory('Vida & Fé')">Vida & Fé</button>
+                </div>
 
-                <!-- CARD 2: PLACEHOLDER PARA PRÓXIMO ENCONTRO (FÁCIL DE DUPLICAR) -->
-                <article class="card placeholder">
-                    <div class="card-banner">
-                        <span class="badge-status" style="border-color: #888; color: #aaa;">Em Breve</span>
-                        <div class="card-banner-icon" style="opacity: 0.4;">🤝</div>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-meta" style="color: var(--text-muted);">
-                            <span>📅 Próximo Encontro</span>
-                            <span>⏱️ Em Elaboração</span>
-                        </div>
-                        <h3 class="card-title" style="color: #bbb;">Integridade & Prosperidade com Propósito</h3>
-                        <p class="card-description">
-                            Princípios fundamentais de fidelidade nos negócios, governança ética e como construir um legado duradouro para sua empresa e família.
-                        </p>
-                        <div class="card-tags">
-                            <span class="tag">Integridade</span>
-                            <span class="tag">Gestão</span>
-                            <span class="tag">Família</span>
-                        </div>
-                        <div class="card-footer">
-                            <span style="font-size: 0.8rem; color: #667085;">Disponível após o evento</span>
-                            <button class="btn-secondary" style="opacity: 0.6; cursor: not-allowed; padding: 6px 14px;" disabled>
-                                Aguarde
-                            </button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- CARD 3: PLACEHOLDER HISTÓRICO / TESTEMUNHOS -->
-                <article class="card placeholder">
-                    <div class="card-banner">
-                        <span class="badge-status" style="border-color: #888; color: #aaa;">Acervo</span>
-                        <div class="card-banner-icon" style="opacity: 0.4;">📖</div>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-meta" style="color: var(--text-muted);">
-                            <span>📅 Acervo do Capítulo</span>
-                            <span>⏱️ Testemunhos</span>
-                        </div>
-                        <h3 class="card-title" style="color: #bbb;">Histórias de Sucesso e Transformação</h3>
-                        <p class="card-description">
-                            Compilado de relatos reais de empresários, profissionais liberais e líderes que tiveram seus negócios e lares transformados.
-                        </p>
-                        <div class="card-tags">
-                            <span class="tag">Testemunho</span>
-                            <span class="tag">Superação</span>
-                        </div>
-                        <div class="card-footer">
-                            <span style="font-size: 0.8rem; color: #667085;">Em atualização</span>
-                            <button class="btn-secondary" style="opacity: 0.6; cursor: not-allowed; padding: 6px 14px;" disabled>
-                                Aguarde
-                            </button>
-                        </div>
-                    </div>
-                </article>
-
+                <div class="sort-control">
+                    <span>Ordem:</span>
+                    <select id="sortSelect" class="sort-select" onchange="handleSortChange()">
+                        <option value="desc">Mais recentes primeiro</option>
+                        <option value="asc">Mais antigas primeiro</option>
+                    </select>
+                </div>
             </div>
+
+            <!-- GRID DINÂMICO DE CARDS (RENDERIZADO VIA APRESENTACOES.JS) -->
+            <div id="presentationsGrid" class="presentations-grid">
+                <!-- Os cards serão injetados dinamicamente via JavaScript -->
+            </div>
+            
+            <div id="emptyMessage" style="display: none; text-align: center; padding: 50px 20px; color: var(--text-muted);">
+                <p style="font-size: 1.2rem; margin-bottom: 8px;">Nenhuma apresentação encontrada para a sua busca.</p>
+                <p style="font-size: 0.9rem;">Tente pesquisar por outro termo ou selecione a categoria "Todos".</p>
+            </div>
+
         </div>
     </section>
 
@@ -701,6 +817,113 @@
             </p>
         </div>
     </footer>
+
+    <!-- CARREGAR CATÁLOGO DE DADOS -->
+    <script src="apresentacoes.js"></script>
+
+    <script>
+        let currentCategory = 'todos';
+        let currentSort = 'desc'; // 'desc' (mais recentes) ou 'asc'
+        let searchTerm = '';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof APRESENTACOES !== 'undefined') {
+                document.getElementById('countTotal').innerText = APRESENTACOES.length;
+                renderCards();
+            }
+        });
+
+        function setCategory(cat) {
+            currentCategory = cat;
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.innerText.toLowerCase().includes(cat.toLowerCase()) || (cat === 'todos' && btn.innerText.includes('Todos'))) {
+                    btn.classList.add('active');
+                }
+            });
+            renderCards();
+        }
+
+        function handleSearch() {
+            searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+            renderCards();
+        }
+
+        function handleSortChange() {
+            currentSort = document.getElementById('sortSelect').value;
+            renderCards();
+        }
+
+        function renderCards() {
+            const grid = document.getElementById('presentationsGrid');
+            const emptyMsg = document.getElementById('emptyMessage');
+            
+            if (typeof APRESENTACOES === 'undefined') return;
+
+            // Filtrar
+            let filtered = APRESENTACOES.filter(item => {
+                const matchCategory = (currentCategory === 'todos') || (item.category === currentCategory);
+                const matchSearch = searchTerm === '' || 
+                    item.title.toLowerCase().includes(searchTerm) || 
+                    item.subtitle.toLowerCase().includes(searchTerm) || 
+                    item.desc.toLowerCase().includes(searchTerm) || 
+                    item.tags.some(t => t.toLowerCase().includes(searchTerm));
+                
+                return matchCategory && matchSearch;
+            });
+
+            // Ordenar por data
+            filtered.sort((a, b) => {
+                const dateA = new Date(a.date);
+                const dateB = new Date(b.date);
+                return currentSort === 'desc' ? (dateB - dateA) : (dateA - dateB);
+            });
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                emptyMsg.style.display = 'block';
+                return;
+            }
+
+            emptyMsg.style.display = 'none';
+
+            grid.innerHTML = filtered.map(item => {
+                const isNext = item.status === 'proximo';
+                const statusBadge = isNext ? '🔥 Próximo' : 'Concluído';
+                const badgeColor = isNext ? 'border-color: var(--gold); color: var(--gold-light);' : 'border-color: #55627a; color: #8e9bb2;';
+
+                const tagsHtml = item.tags.slice(0, 4).map(t => `<span class="tag">${t}</span>`).join('');
+
+                return `
+                    <article class="card">
+                        <div class="card-banner">
+                            <span class="badge-status" style="${badgeColor}">${item.badge}</span>
+                            <div class="card-banner-icon">${item.icon || '📖'}</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-date">
+                                📅 ${item.formattedDate}
+                                ${isNext ? '<span style="color: var(--gold); font-size: 0.72rem; margin-left: 6px;">[Próximo Encontro]</span>' : ''}
+                            </div>
+                            <h3 class="card-title">${item.title}</h3>
+                            <div class="card-subtitle">${item.subtitle}</div>
+                            <p class="card-description">${item.desc}</p>
+                            <div class="card-tags">
+                                ${tagsHtml}
+                            </div>
+                            <div class="card-footer">
+                                <span style="font-size: 0.78rem; color: var(--text-muted);">${item.slidesCount || 12} slides</span>
+                                <a href="${item.filename}" class="btn-open" target="_blank" rel="noopener">
+                                    <span>Abrir Apresentação</span>
+                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                `;
+            }).join('');
+        }
+    </script>
 
 </body>
 </html>
