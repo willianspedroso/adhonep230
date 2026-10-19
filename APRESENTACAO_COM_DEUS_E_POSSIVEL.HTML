@@ -48,6 +48,24 @@
             max-width: 1280px;
             margin: 0 auto;
             box-sizing: border-box;
+        
+            max-height: 82vh;
+            overflow-y: auto;
+            overflow-x: hidden;
+            scrollbar-width: thin;
+            scrollbar-color: var(--gold) rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-box::-webkit-scrollbar {
+            width: 6px;
+        }
+        .glass-box::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+        }
+        .glass-box::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 4px;
         }
 
         .badge {
@@ -390,6 +408,7 @@
         controls: true,
         progress: true,
         center: true,
+        mouseWheel: false,
         plugins: [ RevealNotes ]
     });
 </script>
