@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apresentação Executiva: Arquitetura sistema_mei</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: #121826;
+      --card-border: #1f293d;
+      --primary: #3b82f6;
+      --primary-light: #60a5fa;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --purple: #8b5cf6;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 50px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      background: rgba(59, 130, 246, 0.15);
+      color: var(--primary-light);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: 2.75rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 750px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin: 40px 0 20px 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title::before {
+      content: "";
+      width: 4px;
+      height: 24px;
+      background: var(--primary);
+      border-radius: 2px;
+      display: inline-block;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .mermaid-wrapper {
+      background: #0f172a;
+      padding: 24px;
+      border-radius: 14px;
+      overflow-x: auto;
+      border: 1px solid #1e293b;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .metric-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 22px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .metric-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+    }
+
+    .metric-card.blue::before { background: var(--primary); }
+    .metric-card.green::before { background: var(--success); }
+    .metric-card.purple::before { background: var(--purple); }
+    .metric-card.amber::before { background: var(--warning); }
+
+    .metric-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .metric-card p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    th, td {
+      padding: 14px 18px;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+
+    th {
+      background: #172033;
+      color: var(--text);
+      font-weight: 600;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    td {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--text-muted);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .tag-green { background: rgba(16, 185, 129, 0.15); color: #34d399; }
+    .tag-blue { background: rgba(59, 130, 246, 0.15); color: #60a5fa; }
+    .tag-purple { background: rgba(139, 92, 246, 0.15); color: #c084fc; }
+
+    .action-bar {
+      margin-top: 30px;
+      text-align: center;
+      padding: 20px;
+      background: #101726;
+      border-radius: 12px;
+      border: 1px dashed var(--card-border);
+    }
+
+    .btn-print {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+      transition: all 0.2s;
+    }
+
+    .btn-print:hover {
+      background: #2563eb;
+      transform: translateY(-1px);
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div class="badge">Estratégia Contábil & Arquitetura SaaS</div>
+    <h1>sistema_mei: Fluxo Inteligente de Dados</h1>
+    <p class="subtitle">Como simplificar a vida do microempreendedor solo automatizando vendas, financeiro, emissão fiscal e conformidade com a Receita Federal em uma única esteira invisível.</p>
+  </header>
+
+  <div class="action-bar">
+    <span>💡 <strong>Dica para Reunião com o Sócio:</strong> Você pode pressionar </span>
+    <button class="btn-print" onclick="window.print()">Imprimir / Salvar como PDF</button>
+    <span> ou capturar a tela deste painel executivo.</span>
+  </div>
+
+  <h2 class="section-title">1. Fluxograma Geral dos Módulos (Jornada do Dado)</h2>
+  <div class="card">
+    <div class="mermaid-wrapper">
+      <pre class="mermaid">
+flowchart LR
+    %% Entradas
+    subgraph ENTRADA["1. Entrada Fácil (MEI)"]
+        direction TB
+        CLI["👤 Clientes & Fornecedores<br/><small>(Receita Federal pré-cadastrada)</small>"]
+        ORC["📝 Orçamento Simples"]
+        REC["💰 Contas a Receber"]
+        PAG["💸 Contas a Pagar<br/><small>(Despesas + DAS Automático)</small>"]
+    end
+
+    %% Conversao
+    ORC -->|"Aprovado"| REC
+
+    %% Motor Central
+    subgraph MOTOR["2. Motor Inteligente sistema_mei"]
+        direction TB
+        BAIXA["✅ Baixa de Pagamento / Recebimento"]
+        SEGREGA["🔍 Classificador Fiscal<br/>(Serviço vs Comércio | Com NF vs Sem NF)"]
+        TETO["⏱️ Termômetro do Teto Anual<br/>(Alerta de Estouro R$ 81k / PLP 108)"]
+    end
+
+    REC --> BAIXA
+    PAG --> BAIXA
+    BAIXA --> SEGREGA
+    SEGREGA --> TETO
+
+    %% Fiscal
+    subgraph FISCAL["3. Obrigações e Governo"]
+        direction TB
+        NF["⚡ Emissão NF 1-Clique<br/>(NFe.io / NFS-e Nacional)"]
+        RMRB["📄 Relatório Mensal (RMRB)<br/>(Art. 106 Res. CGSN 140)"]
+        DASN["📊 Declaração Anual (DASN)<br/>(Totalizador Automático)"]
+        DAS["💳 Guia DAS Mensal<br/>(Pix Copia e Cola / Barcode)"]
+    end
+
+    BAIXA -.->|"Opcional"| NF
+    NF -->|"Retorno da NF"| SEGREGA
+    SEGREGA -->|"Alimenta Mês"| RMRB
+    RMRB -->|"Fecha Ano"| DASN
+
+    %% DRE
+    subgraph GESTAO["4. Gestão & Lucro"]
+        DRE["📈 DRE Simples<br/>(Lucro Real + Isenção IRPF)"]
+    end
+
+    BAIXA --> DRE
+
+    %% Externos
+    subgraph EXT["5. Serviços Conectados"]
+        API_DAS["🏛️ API PGMEI / DAS"]
+        REGUA["✉️ Régua de E-mail / Zap"]
+        MP["💳 Checkout Mercado Pago"]
+    end
+
+    DAS <--> API_DAS
+    DAS ==>|"Gera Contas a Pagar Automático (Vcto dia 20 com Pix)"| PAG
+    TETO -.-> REGUA
+    DAS -.-> REGUA
+    MP -->|"Webhook Aprovado"| LIBERA["🚀 Acesso Liberado"]
+
+    style ENTRADA fill:#0c2238,stroke:#0284c7,stroke-width:2px,color:#fff
+    style MOTOR fill:#201435,stroke:#9333ea,stroke-width:2px,color:#fff
+    style FISCAL fill:#062d1f,stroke:#059669,stroke-width:2px,color:#fff
+    style GESTAO fill:#2e1f0c,stroke:#d97706,stroke-width:2px,color:#fff
+    style EXT fill:#2a1122,stroke:#db2777,stroke-width:2px,color:#fff
+      </pre>
+    </div>
+  </div>
+
+  <h2 class="section-title">2. Os Pilares & Inovações da Solução</h2>
+  <div class="grid-3">
+    <div class="metric-card blue">
+      <h3>1. Emissão Sem Complicação <span class="tag tag-blue">NFe.io</span></h3>
+      <p>O MEI não sabe o que é CFOP, CST ou Alíquota LC 116. O sistema vem com <strong>templates pré-configurados para MEI</strong>. Ele apenas seleciona se é Serviço ou Venda e emite em 1 clique direto do contas a receber.</p>
+    </div>
+
+    <div class="metric-card amber">
+      <h3>2. DAS como Fornecedor <span class="tag tag-purple">Automação Contábil</span></h3>
+      <p>No cadastro, a <strong>Receita Federal</strong> já entra como fornecedor padrão. Todo início de mês, a API busca a guia DAS e gera um <strong>Contas a Pagar automático para o dia 20</strong>, com chave Pix Copia e Cola embutida!</p>
+    </div>
+
+    <div class="metric-card green">
+      <h3>3. RMRB e DASN Prontos <span class="tag tag-green">Fiscal 100% Automático</span></h3>
+      <p>Cumpre o Art. 106 da Resolução CGSN 140/2018. Cada valor recebido é alocado na gaveta fiscal certa. No dia 20, o relatório mensal está pronto; no fim do ano, a DASN-SIMEI está calculada sem esforço.</p>
+    </div>
+
+    <div class="metric-card purple">
+      <h3>4. DRE e Isenção de IRPF <span class="tag tag-purple">Proteção do MEI</span></h3>
+      <p>DRE de Caixa transparente: Faturamento (-) Custos (incluindo o DAS pago) = Lucro. O sistema calcula a <strong>Parcela Isenta de Distribuição de Lucros</strong> para a declaração de Imposto de Renda Pessoa Física do MEI.</p>
+    </div>
+  </div>
+
+  <h2 class="section-title">3. Levantamento de Custos e Viabilidade de Mercado</h2>
+  <div class="card">
+    <p style="color: var(--text-muted); margin-bottom: 15px;">Custos diretos estimados por usuário ativo para garantir alta margem bruta (> 80%):</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Serviço / Componente</th>
+          <th>Fornecedor Indicado</th>
+          <th>Custo Estimado por Usuário</th>
+          <th>Impacto no Negócio</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Emissão de Notas Fiscais</strong></td>
+          <td>API NFe.io</td>
+          <td>~R$ 0,15 a R$ 0,35 por nota</td>
+          <td>Usuário MEI emite em média de 3 a 12 notas/mês (~R$ 2,00/mês).</td>
+        </tr>
+        <tr>
+          <td><strong>Geração da Guia DAS</strong></td>
+          <td>API PGMEI / Infosimples</td>
+          <td>~R$ 0,30 a R$ 0,50 por consulta</td>
+          <td>1 consulta mensal por MEI ativo para obter código de barras e Pix.</td>
+        </tr>
+        <tr>
+          <td><strong>Régua de E-mails / Lembretes</strong></td>
+          <td>Resend / AWS SES</td>
+          <td>R$ 0,0005 por disparo</td>
+          <td>Praticamente zero (nível gratuito cobre dezenas de milhares de envios).</td>
+        </tr>
+        <tr>
+          <td><strong>Gateway de Pagamento</strong></td>
+          <td>Mercado Pago / PagBank</td>
+          <td>0,99% (Pix) | 3,99% (Cartão)</td>
+          <td>Cobrado apenas no ato da assinatura SaaS (checkout transparente).</td>
+        </tr>
+        <tr>
+          <td><strong>Servidores & Banco de Dados</strong></td>
+          <td>VPS Hetzner / DigitalOcean / Supabase</td>
+          <td>Custo fixo (~R$ 150 a R$ 250/mês total)</td>
+          <td>Diluído: menos de R$ 0,25 por cliente com 1.000 usuários ativos.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 class="section-title">4. Proposta de Preço ao MEI (Go-to-Market)</h2>
+  <div class="grid-3">
+    <div class="metric-card amber">
+      <h3>Plano Controle <span class="tag tag-blue">R$ 19,90 / mês</span></h3>
+      <p>Para quem ainda não emite nota frequente:<br/>
+      • Clientes & Fornecedores<br/>
+      • Orçamentos em PDF/Zap<br/>
+      • Contas a Pagar/Receber<br/>
+      • Relatório Mensal RMRB<br/>
+      • DAS com Pix automático</p>
+    </div>
+
+    <div class="metric-card green">
+      <h3>Plano Emissor Pro <span class="tag tag-green">R$ 39,90 / mês</span></h3>
+      <p><strong>Mais Vendido (Recomendado):</strong><br/>
+      • Tudo do Plano Controle<br/>
+      • Emissão de Notas NFe.io (até 30/mês)<br/>
+      • DASN Anual Pré-preenchida<br/>
+      • DRE com Cálculo de Isenção IRPF<br/>
+      • Régua de Alertas no WhatsApp/E-mail</p>
+    </div>
+
+    <div class="metric-card purple">
+      <h3>Margem Bruta do Negócio <span class="tag tag-purple">> 85%</span></h3>
+      <p>Com um custo variável médio de <strong>R$ 3,80</strong> por MEI no Plano Pro (R$ 39,90), a operação gera cerca de <strong>R$ 35,00 de margem de contribuição por usuário</strong> para cobrir marketing e lucro.</p>
+    </div>
+  </div>
+
+  <h2 class="section-title">5. Fluxo de Assinatura e Liberação Imediata</h2>
+  <div class="card">
+    <div class="mermaid-wrapper">
+      <pre class="mermaid">
+sequenceDiagram
+    autonumber
+    actor MEI as 🧑‍💼 Microempreendedor
+    participant App as 💻 Front-End sistema_mei
+    participant MP as 💳 Checkout Mercado Pago
+    participant Webhook as ⚡ Webhook Handler
+    participant DB as 🗄️ Banco de Dados
+
+    MEI->>App: Escolhe o Plano & Clica em "Assinar"
+    App->>MP: Cria preferência de pagamento / assinatura
+    MP-->>App: Retorna tela de checkout (Pix / Cartão)
+    MEI->>MP: Paga o Pix instantâneo
+    MP->>Webhook: Notifica evento "payment.approved"
+    Webhook->>MP: Valida assinatura criptográfica
+    Webhook->>DB: Atualiza MEI para status "ATIVO" (vigência 30 dias)
+    Webhook-->>MEI: Dispara e-mail de boas-vindas com chave de acesso
+    App-->>MEI: Painel desbloqueado imediatamente!
+      </pre>
+    </div>
+  </div>
+</div>
+
+<script>
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'dark',
+    themeVariables: {
+      darkMode: true,
+      background: '#0f172a',
+      primaryColor: '#3b82f6',
+      primaryBorderColor: '#60a5fa',
+      lineColor: '#64748b'
+    }
+  });
+</script>
+
+</body>
+</html>
